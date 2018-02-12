@@ -144,7 +144,7 @@
 <body>
 <section id="menu-1a" data-rv-view="43">
 
-    <nav class="navbar navbar-dropdown navbar-fixed-top">
+    <nav class="navbar navbar-dropdown navbar-fixed-top" style="background-color: #4a4f6e;">
         <div class="container">
 
             <div class="iot-table">
@@ -190,6 +190,8 @@
 
 <section class="iot-section iot-section-full iot-parallax-background iot-after-navbar" id="header1-1j" data-rv-view="81"
          style="background-image: url();">
+
+
     <div class="iot-table-cell">
         <div class="iot-overlay" style="opacity: 0.5; background-color: rgb(41, 105, 176);"></div>
         <div class="container">
@@ -231,7 +233,7 @@
         <a class="iot-arrow" href="#testimonials4-1d"><i class="fa fa-angle-down"></i></a>
     </div>
 </section>
-
+<div id="particles-js"></div>
 <section class="iot-section iot-parallax-background" id="testimonials4-1d" data-rv-view="58"
          style="background-image: url(assets/images/bgabout.jpg);border-bottom: solid thin white;">
 
@@ -596,6 +598,7 @@
     </div>
 </section>
 
+
 <footer class="iot-small-footer iot-section iot-section-nopadding" id="footer1-1f" data-rv-view="70"
         style="background-color: rgb(50, 50, 50); padding-top: 1.75rem; padding-bottom: 1.75rem;">
 
@@ -620,6 +623,35 @@
 <script src="assets/viewport-checker/jquery.viewportchecker.js"></script>
 <script src="assets/dropdown/js/script.min.js"></script>
 <script src="assets/theme/js/script.js"></script>
+
+<!-- particles.js container -->
+
+<!-- scripts -->
+<script src="js/particles.js"></script>
+<script src="js/app.js"></script>
+
+<!-- stats.js -->
+<script src="js/lib/stats.js"></script>
+<script>
+    var count_particles, stats, update;
+    stats = new Stats;
+    stats.setMode(0);
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.left = '0px';
+    stats.domElement.style.top = '0px';
+    document.body.appendChild(stats.domElement);
+    count_particles = document.querySelector('.js-count-particles');
+    update = function() {
+        stats.begin();
+        stats.end();
+        if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+            count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+        }
+        requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+</script>
+
 <script>
     function getTimeRemaining(endtime) {
         var t = Date.parse(endtime) - Date.parse(new Date());
